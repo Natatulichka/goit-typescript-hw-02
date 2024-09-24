@@ -1,0 +1,19 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+
+  background-color: rgb(210, 208, 209);
+  border-color: rgb(210, 208, 209);
+  border-radius: 16px;
+  overflow: hidden;
+}
