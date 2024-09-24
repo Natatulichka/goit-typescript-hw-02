@@ -1,6 +1,11 @@
+import { ImageCardProps } from "../../App.types";
 import css from "./ImageCard.module.css";
 
-const ImageCard = ({ urls, alt_description, openModal }) => {
+const ImageCard: React.FC<ImageCardProps> = ({
+  urls,
+  alt_description,
+  openModal,
+}) => {
   return (
     <div className={css.box}>
       <img

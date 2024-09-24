@@ -3,8 +3,9 @@ import toast, { Toaster } from "react-hot-toast";
 import { FiSearch } from "react-icons/fi";
 
 import css from "./SearchBar.module.css";
+import { SearchBarProps } from "../../App.types";
 
-const SearchBar = ({ onSubmit }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ onSubmit }) => {
   const [query, setQuery] = useState("");
 
   const handleChange = (e) => {

@@ -1,6 +1,7 @@
 import { DNA } from "react-loader-spinner";
+import { LoaderProps } from "../../App.types";
 
-const Loader = () => {
+const Loader: React.FC<LoaderProps> = () => {
   return (
     <>
       <DNA

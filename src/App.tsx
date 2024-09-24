@@ -6,74 +6,14 @@ import Loader from "./components/Loader/Loader";
 import Section from "./components/Section/Section";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import ImageModal from "./components/ImageModal/ImageModal";
+import { Image } from "./App.types";
 
-interface Image {
-  id: string;
-  webformatURL: string;
-  largeImageURL: string;
-  tags: string;
-  likes: number;
-  downloads: number;
-  user: string;
-}
-
-interface SearchBarProps {
-  onSubmit: (value: string) => void;
-}
-
-interface ImageGalleryProps {
-  images: Image[];
-  openModal: (url: string, alt: string) => void;
-}
-
-interface LoadMoreBtnProps {
-  onClick: () => void;
-  disabled: boolean;
-}
-
-interface ImageModalProps {
-  modalIsOpen: boolean;
-  closeModal: () => void;
-  src: string;
-  alt: string;
-}
-
-interface Image {
-  id: string;
-  webformatURL: string;
-  largeImageURL: string;
-  tags: string;
-  likes: number;
-  downloads: number;
-  user: string;
-}
-
-interface SearchBarProps {
-  onSubmit: (value: string) => void;
-}
-
-interface ImageGalleryProps {
-  images: Image[];
-  openModal: (url: string, alt: string) => void;
-}
-
-interface LoadMoreBtnProps {
-  onClick: () => void;
-  disabled: boolean;
-}
-
-interface ImageModalProps {
-  modalIsOpen: boolean;
-  closeModal: () => void;
-  src: string;
-  alt: string;
-}
 function App() {
   const [images, setImages] = useState<Image[]>([]);
   const [query, setQuery] = useState<string>("");
   const [page, setPage] = useState<number>(1);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<Error | null>(null);
+  const [error, setError] = useState<null>(null);
   const [isEmpty, setIsEmpty] = useState<boolean>(false);
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -96,8 +36,8 @@ function App() {
 
         setImages((prevImages: Image[]) => [...prevImages, ...results]);
         setIsVisible(page < total_pages);
-      } catch (err) {
-        setError(err as Error);
+      } catch (error) {
+        setError(error);
       } finally {
         setIsLoading(false);
       }
@@ -157,5 +97,4 @@ function App() {
     </>
   );
 }
-
 export default App;
