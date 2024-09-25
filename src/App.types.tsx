@@ -44,3 +44,19 @@ export interface SectionProps {
 }
 
 export interface LoaderProps {}
+
+export interface SearchResponse {
+  total: number;
+  total_pages: number;
+  results: {
+    id: string;
+    urls: {
+      small: string;
+      regular: string;
+    };
+    user: {
+      name: string;
+      username: string;
+    };
+  }[];
+}
